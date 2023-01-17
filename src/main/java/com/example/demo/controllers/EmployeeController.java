@@ -20,12 +20,12 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{id}")
-    public ResponseEntity<?> getEmployeeById(@PathVariable("id") String id) {
+    public ResponseEntity<?> getEmployeeById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(EmployeeService.getEmployeeById(id), HttpStatus.OK);
     }
 
     @GetMapping("/employees-by-jobid/{id}")
-    public ResponseEntity<?> getEmployeeByJobId(@PathVariable("id") String id) {
+    public ResponseEntity<?> getEmployeeByJobId(@PathVariable("id") Long id) {
         return new ResponseEntity<>(EmployeeService.getEmployeeByJobId(id), HttpStatus.OK);
     }
 

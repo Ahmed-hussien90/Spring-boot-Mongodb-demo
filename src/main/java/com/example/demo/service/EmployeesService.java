@@ -20,11 +20,11 @@ public class EmployeesService {
        return EmployeeRep.findAll();
     }
 
-    public Employee getEmployeeById(String id){
+    public Employee getEmployeeById(Long id){
         return EmployeeRep.findEmployeeById(id);
     }
 
-    public List<Employee> getEmployeeByJobId(String JobId){
+    public List<Employee> getEmployeeByJobId(Long JobId){
         return EmployeeRep.findEmployeesByJobID(JobId);
     }
 
