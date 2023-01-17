@@ -12,6 +12,9 @@ public class EmployeesService {
 
     @Autowired
     private EmployeesRepository EmployeeRep;
+    @Autowired
+    private SequenceGeneratorService sequenceGeneratorService;
+
 
     public List<Employee> getAllEmployees(){
        return EmployeeRep.findAll();
@@ -29,7 +32,7 @@ public class EmployeesService {
         if (employee == null) {
             return null;
         }
+        employee.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
         return EmployeeRep.insert(employee);
     }
-
 }

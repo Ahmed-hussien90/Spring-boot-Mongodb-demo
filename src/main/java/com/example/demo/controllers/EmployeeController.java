@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
 
 @RestController
 public class EmployeeController {
@@ -21,14 +19,19 @@ public class EmployeeController {
         return new ResponseEntity<>(EmployeeService.getAllEmployees(), HttpStatus.OK);
     }
 
-    @PostMapping("/employees/{id}")
+    @GetMapping("/employees/{id}")
     public ResponseEntity<?> getEmployeeById(@PathVariable("id") String id) {
         return new ResponseEntity<>(EmployeeService.getEmployeeById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/employees-by-jobid/{id}")
+    @GetMapping("/employees-by-jobid/{id}")
     public ResponseEntity<?> getEmployeeByJobId(@PathVariable("id") String id) {
         return new ResponseEntity<>(EmployeeService.getEmployeeByJobId(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/employees")
+    public ResponseEntity<?> getEmployeeByJobId(@RequestBody Employee employee) {
+        return new ResponseEntity<>(EmployeeService.addEmployee(employee), HttpStatus.OK);
     }
 
 
