@@ -24,14 +24,19 @@ public class EmployeeController {
         return new ResponseEntity<>(EmployeeService.getEmployeeById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/employees-by-jobid/{id}")
-    public ResponseEntity<?> getEmployeeByJobId(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(EmployeeService.getEmployeeByJobId(id), HttpStatus.OK);
+    @GetMapping("/employees-by-job-id/{jobId}")
+    public ResponseEntity<?> getEmployeeByJobId(@PathVariable("jobId") Long jobId) {
+        return new ResponseEntity<>(EmployeeService.getEmployeeByJobId(jobId), HttpStatus.OK);
     }
 
     @PostMapping("/employees")
     public ResponseEntity<?> getEmployeeByJobId(@RequestBody Employee employee) {
         return new ResponseEntity<>(EmployeeService.addEmployee(employee), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public ResponseEntity<?> deleteEmployeeByJobId(@PathVariable Long id) {
+        return new ResponseEntity<>(EmployeeService.deleteEmployeeById(id), HttpStatus.OK);
     }
 
 

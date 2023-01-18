@@ -5,6 +5,7 @@ import com.example.demo.repository.EmployeesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @Service
@@ -24,8 +25,8 @@ public class EmployeesService {
         return EmployeeRep.findEmployeeById(id);
     }
 
-    public List<Employee> getEmployeeByJobId(Long JobId){
-        return EmployeeRep.findEmployeesByJobID(JobId);
+    public List<Employee> getEmployeeByJobId(Long jobId){
+        return EmployeeRep.findEmployeesByJobIdEquals(jobId);
     }
 
     public Employee addEmployee(Employee employee){
@@ -35,4 +36,9 @@ public class EmployeesService {
         employee.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
         return EmployeeRep.insert(employee);
     }
+
+    public Employee deleteEmployeeById(Long id){
+        return EmployeeRep.deleteEmployeeById(id);
+    }
+
 }

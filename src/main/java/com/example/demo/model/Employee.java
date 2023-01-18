@@ -23,6 +23,6 @@ public class Employee {
     private String lastName;
     private String hireDate;
     private String jobName;
-    private String JobId;
+    private Long jobId;
 
 }

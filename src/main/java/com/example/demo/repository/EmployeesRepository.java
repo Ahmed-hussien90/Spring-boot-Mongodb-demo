@@ -9,11 +9,13 @@ import java.util.List;
 
 public interface EmployeesRepository extends MongoRepository<Employee, Serializable> {
 
-    @Query("{'id' : ?0}")
     Employee findEmployeeById(Long id);
 
-    @Query("{'jobId' : ?0}")
-    List<Employee> findEmployeesByJobID(Long jobId);
+    List<Employee> findEmployeesByJobIdEquals(Long jobId);
+
+    Employee deleteEmployeeById(Long id);
+
+
 
 }
 
