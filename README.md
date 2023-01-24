@@ -4,7 +4,7 @@ Spring Boot MongoDB CRUD example with Maven
 
 # Running Server
 
-clone app in intellij or any supported spring editor. 
+clone app in intellij or any IDE supported spring  . 
 
 change mongodbUrl in application.properties with your mongodbUrl  `spring.data.mongodb.uri= "yourDburl"`.
 
