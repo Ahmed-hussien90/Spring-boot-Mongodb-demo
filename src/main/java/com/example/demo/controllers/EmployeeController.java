@@ -30,7 +30,7 @@ public class EmployeeController {
         return new ResponseEntity<>(EmployeeService.getEmployeeByJobId(jobId), HttpStatus.OK);
     }
 
-    @GetMapping
+    @PostMapping
     public ResponseEntity<?> getEmployeeByJobId(@RequestBody Employee employee) {
         return new ResponseEntity<>(EmployeeService.addEmployee(employee), HttpStatus.OK);
     }
