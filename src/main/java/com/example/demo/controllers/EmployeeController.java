@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping("/employees")
 public class EmployeeController {
 
     @Autowired
     private EmployeesService EmployeeService;
 
-    @GetMapping("/employees")
+    @GetMapping
     public ResponseEntity<?> getEmployees() {
         return new ResponseEntity<>(EmployeeService.getAllEmployees(), HttpStatus.OK);
     }
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getEmployeeById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(EmployeeService.getEmployeeById(id), HttpStatus.OK);
     }
@@ -29,12 +30,12 @@ public class EmployeeController {
         return new ResponseEntity<>(EmployeeService.getEmployeeByJobId(jobId), HttpStatus.OK);
     }
 
-    @PostMapping("/employees")
+    @GetMapping
     public ResponseEntity<?> getEmployeeByJobId(@RequestBody Employee employee) {
         return new ResponseEntity<>(EmployeeService.addEmployee(employee), HttpStatus.OK);
     }
 
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteEmployeeByJobId(@PathVariable Long id) {
         return new ResponseEntity<>(EmployeeService.deleteEmployeeById(id), HttpStatus.OK);
     }
